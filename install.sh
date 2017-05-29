@@ -52,6 +52,7 @@ cd ..
 }
 
 install_rocks() {
+   ./.luarocks/bin/luarocks install redis-lua
    ./.luarocks/bin/luarocks install redis
    sudo service redis-server restart -y   
 }
