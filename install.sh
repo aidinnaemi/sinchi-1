@@ -52,11 +52,8 @@ cd ..
 }
 
 install_rocks() {
-echo -e "\e[38;5;105mInstall rocks service\e"
-rocks="luasocket luasec redis-lua lua-term serpent dkjson Lua-cURL multipart-post lanes xml fakeredis luaexpat luasec lbase64 luafilesystem lub lua-cjson feedparser serpent"
-    for rock in $rocks; do
-      ./.luarocks/bin/luarocks install $rock
-    done
+   ./.luarocks/bin/luarocks install redis
+   sudo service redis-server restart -y   
 }
   
 tg() {
@@ -65,17 +62,12 @@ echo -e "\e[38;5;099minstall telegram-cli\e"
     wget https://valtman.name/files/telegram-cli-1222
     mv telegram-cli-1222 telegram-cli
     chmod +x telegram-cli
-    chmod +x anticrash.sh
 }
   
 install2() {
 echo -e "\e[38;5;034mInstalling more dependencies\e"
     sudo apt-get install screen -y
     sudo apt-get install tmux -y
-    sudo apt-get install upstart -y
-    sudo apt-get install libstdc++6 -y
-    sudo apt-get install lua-lgi -y
-    sudo apt-get install libnotify-dev -y
 }
 
 install() {
